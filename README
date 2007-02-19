@@ -1,0 +1,32 @@
+Certain modules, such as CGI::Ajax and JavaScript::Autocomplete::Backend,
+require a minimal CGI.pm-compatible module to provide, in particular,
+param() and header() methods to, respectively, fetch parameters
+and to set the headers. The standard module to
+do this is of course CGI.pm; however, especially in a mod_perl
+environment, there may be concerns with the resultant memory footprint.
+This module provides param() and header() methods via
+mod_perl2 and librapreq2, and as such, it may be a viable
+alternative in a mod_perl scenario. However, due to the nature of
+the required APR modules needed here, this module may also be used
+in a CGI environment. See the documentation for
+CGI::Apache2::Wrapper for details.
+
+Installation proceeds through the usual
+   perl Makefile.PL
+   $MAKE
+   $MAKE test
+   $MAKE install
+or, if Module::Build is available,
+   perl Build.PL
+   perl Build
+   perl Build test
+   perl Build install
+A ppm package for Win32 users of ActivePerl 8xx can be installed
+by adding http://theoryx5.uwinnipeg.ca/ppms/ to your list
+of repositories and then issuing the command
+   C:\> ppm install CGI-Apache2-Wrapper
+
+This software is copyright 2007 by Randy Kobes
+<r.kobes@uwinnipeg.ca>. Use and
+redistribution are under the same terms as Perl itself;
+see http://www.perl.com/pub/a/language/misc/Artistic.html.

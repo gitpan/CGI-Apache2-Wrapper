@@ -1,0 +1,27 @@
+--- #YAML:1.0
+name:         CGI::Apache2::Wrapper
+version:      0.1
+version_from: lib/CGI/Apache2/Wrapper.pm
+license:      perl
+abstract:     provide param() and header() via mod_perl
+installdirs:  site
+authored_by:
+    - Randy Kobes <r.kobes@uwinnipeg.ca>
+requires:
+    File::Spec:         0.8
+    Apache2::Request:    0
+    Apache2::RequestRec: 0
+provides:
+  CGI::Apache2::Wrapper:
+    file: lib/CGI/Apache2/Wrapper.pm
+    version: 0.1
+distribution_type: module
+no_index:
+    file:
+         - t/response/TestCGI/basic.pm
+         - t/response/TestCGI/mp_param.pm
+         - t/response/TestCGI/mp_extra.pm
+meta-spec:
+    url:     http://module-build.sourceforge.net/META-spec-v1.2.html
+    version: 1.2
+generated_by:        ExtUtils::MakeMaker version 6.3101

@@ -1,0 +1,17 @@
+Build.PL
+Changes
+lib/CGI/Apache2/Wrapper.pm
+Makefile.PL
+MANIFEST			This list of files
+META.yml
+README
+t/cgi/cgi_param.t
+t/cgi/mp_param.t
+t/cgi/cgi_extra.t
+t/cgi/mp_extra.t
+t/cgi/pod.t
+t/conf/extra.conf.in
+t/response/TestCGI/basic.pm
+t/response/TestCGI/mp_param.pm
+t/response/TestCGI/mp_extra.pm
+t/TEST.PL
