@@ -1,4 +1,4 @@
-package TestCGI::mp_extra;
+package TestCGI::extra;
 
 use strict;
 use warnings FATAL => 'all';
@@ -12,8 +12,6 @@ sub handler {
   my $cgi = CGI::Apache2::Wrapper->new($r);
   my $foo = $cgi->param("foo");
   my $bar = $cgi->param("bar");
-  my $remote_addr = $cgi->param("remote_addr");
-  my $url = $cgi->param("url");
   my $header = $cgi->param("header");
 
   if ($foo || $bar) {
@@ -24,20 +22,6 @@ sub handler {
     if ($bar) {
       $r->print("\tbar => $bar\n");
     }
-  }
-
-  elsif ($remote_addr) {
-    $r->content_type('text/plain');
-    require Apache2::Connection;
-    my $r_ip = $r->connection->remote_ip;
-    my $cgi_ip = $cgi->remote_addr;
-    my $str = join ':', $cgi_ip, $r_ip;
-    $r->print("$str\n");
-  }
-
-  elsif ($url) {
-    $r->content_type('text/plain');
-    $r->print($cgi->url . "\n");
   }
 
   elsif ($header) {

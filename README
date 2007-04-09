@@ -1,15 +1,26 @@
-Certain modules, such as CGI::Ajax and JavaScript::Autocomplete::Backend,
-require a minimal CGI.pm-compatible module to provide, in particular,
-param() and header() methods to, respectively, fetch parameters
-and to set the headers. The standard module to
-do this is of course CGI.pm; however, especially in a mod_perl
+Certain modules, such as CGI::Ajax and
+JavaScript::Autocomplete::Backend,
+require a minimal CGI.pm-compatible module to provide certain methods,
+such as param() to fetch parameters. The standard module to
+do this is of course L<CGI.pm>; however, especially in a mod_perl
 environment, there may be concerns with the resultant memory footprint.
-This module provides param() and header() methods via
+This module provides various CGI.pm-compatible methods via
 mod_perl2 and librapreq2, and as such, it may be a viable
-alternative in a mod_perl scenario. However, due to the nature of
-the required APR modules needed here, this module may also be used
-in a CGI environment. See the documentation for
-CGI::Apache2::Wrapper for details.
+alternative in a mod_perl scenario.
+
+Note that this module is not a drop-in replacement for
+CGI.pm, as only a select few methods that naturally arise
+in mod_perl2 and libapreq2 are provided. As well as providing
+CGI.pm-compatible methods to other modules, one of the
+main intents here is to assist development of porting 
+CGI applications over to mod_perl2 and libapreq2 and/or
+for use in writing applications
+that are to be used in either a cgi or mod_perl environment. However,
+for applications that are intended only for mod_perl, it is recommended
+that the native interface to mod_perl2 and libapreq2 be used, as
+this module will add some overhead. 
+
+See the documentation for CGI::Apache2::Wrapper for details.
 
 Installation proceeds through the usual
    perl Makefile.PL

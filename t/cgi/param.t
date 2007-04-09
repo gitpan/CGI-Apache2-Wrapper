@@ -8,7 +8,7 @@ use Apache::Test;
 use Apache::TestUtil;
 use Apache::TestRequest qw(GET_BODY POST_BODY);
 
-my $module = 'TestCGI::mp_param';
+my $module = 'TestCGI::param';
 my $location = Apache::TestRequest::module2url($module);
 
 my @key_len = (5, 100, 305);

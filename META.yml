@@ -1,9 +1,9 @@
 --- #YAML:1.0
 name:         CGI::Apache2::Wrapper
-version:      0.1
+version:      0.2
 version_from: lib/CGI/Apache2/Wrapper.pm
 license:      perl
-abstract:     provide param() and header() via mod_perl
+abstract:     CGI.pm-compatible methods via mod_perl
 installdirs:  site
 authored_by:
     - Randy Kobes <r.kobes@uwinnipeg.ca>
@@ -14,13 +14,26 @@ requires:
 provides:
   CGI::Apache2::Wrapper:
     file: lib/CGI/Apache2/Wrapper.pm
-    version: 0.1
+    version: 0.2
+  CGI::Apache2::Wrapper::Cookie:
+    file: lib/CGI/Apache2/Wrapper/Cookie.pm
+    version: 0.2
+  CGI::Apache2::Wrapper::Upload:
+    file: lib/CGI/Apache2/Wrapper/Upload.pm
+    version: 0.2
 distribution_type: module
 no_index:
     file:
          - t/response/TestCGI/basic.pm
-         - t/response/TestCGI/mp_param.pm
-         - t/response/TestCGI/mp_extra.pm
+         - t/response/TestCGI/cookie.pm
+         - t/response/TestCGI/cookie2.pm
+         - t/response/TestCGI/cookie3.pm
+         - t/response/TestCGI/param.pm
+         - t/response/TestCGI/extra.pm
+         - t/response/TestCGI/misc.pm
+         - t/response/TestCGI/upload.pm
+         - t/response/TestCGI/upload1.pm
+         - t/response/TestCGI/use_cgi_pm.pm
 meta-spec:
     url:     http://module-build.sourceforge.net/META-spec-v1.2.html
     version: 1.2

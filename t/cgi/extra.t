@@ -9,13 +9,13 @@ use Apache::TestUtil;
 use Apache::TestRequest qw(GET_BODY POST_BODY GET);
 use constant WIN32 => Apache::TestConfig::WIN32;
 
-my $module = 'TestCGI::mp_extra';
+my $module = 'TestCGI::extra';
 my $location = Apache::TestRequest::module2url($module);
 
 my $line_end = "\n";
 my $filler = "0123456789" x 6400; # < 64K
 
-plan tests => 10, have_lwp;
+plan tests => 8, have_lwp;
 
 ok t_cmp(POST_BODY("$location?foo=1", Content => $filler),
           "\tfoo => 1$line_end", "simple post");
@@ -32,14 +32,6 @@ $body = POST_BODY("$location?foo=1", content =>
                   "intro=$filler&bar=2&conclusion=$filler");
 ok t_cmp($body, "\tfoo => 1$line_end\tbar => 2$line_end",
          "simple post");
-
-my $got = GET_BODY("$location?remote_addr=1");
-chomp $got;
-my ($cgi_ip, $r_ip) = split /:/, $got;
-ok t_cmp($cgi_ip, $r_ip, "remote address");
-
-$got = GET_BODY("$location?url=1");
-ok t_cmp($got, $location . $line_end, "url");
 
 my $res = GET "$location?header=1";
 ok t_cmp $res->code, 200, "OK";

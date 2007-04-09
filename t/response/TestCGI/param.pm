@@ -1,4 +1,4 @@
-package TestCGI::mp_param;
+package TestCGI::param;
 
 use strict;
 use warnings FATAL => 'all';
