@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:         CGI::Apache2::Wrapper
-version:      0.2
+version:      0.21
 version_from: lib/CGI/Apache2/Wrapper.pm
 license:      perl
 abstract:     CGI.pm-compatible methods via mod_perl
@@ -14,13 +14,13 @@ requires:
 provides:
   CGI::Apache2::Wrapper:
     file: lib/CGI/Apache2/Wrapper.pm
-    version: 0.2
+    version: 0.21
   CGI::Apache2::Wrapper::Cookie:
     file: lib/CGI/Apache2/Wrapper/Cookie.pm
-    version: 0.2
+    version: 0.21
   CGI::Apache2::Wrapper::Upload:
     file: lib/CGI/Apache2/Wrapper/Upload.pm
-    version: 0.2
+    version: 0.21
 distribution_type: module
 no_index:
     file:

@@ -2,7 +2,7 @@ package CGI::Apache2::Wrapper::Cookie;
 use strict;
 use warnings;
 
-our $VERSION = '0.2';
+our $VERSION = '0.21';
 our $MOD_PERL;
 use overload '""' => sub { shift->as_string() }, fallback => 1;
 

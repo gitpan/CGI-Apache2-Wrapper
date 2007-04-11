@@ -1,3 +1,6 @@
+0.21 Apr 11, 2007
+  - have header() return the defined ''.
+
 0.2  Apr 9, 2007
   - add several more methods, especially url(), cookie(), and upload().
   - if the USE_CGI_PM environment variable is set, a CGI.pm object

@@ -5,7 +5,7 @@ use File::Basename;
 use APR::Const -compile => qw(URI_UNP_OMITSITEPART
 			      URI_UNP_OMITPATHINFO
 			      URI_UNP_OMITQUERY);
-our $VERSION = '0.2';
+our $VERSION = '0.21';
 our $MOD_PERL;
 
 sub new {
@@ -172,7 +172,7 @@ sub header {
   my $r = $self->r;
   unless (defined $header_extra and ref($header_extra) eq 'HASH') {
     $r->content_type('text/html');
-    return;
+    return '';
   }
   my $content_type = delete $header_extra->{'Content-Type'} || 'text/html';
   $r->content_type($content_type);
@@ -195,6 +195,7 @@ sub header {
       $r->err_headers_out->add($key => $header_extra->{$key});
     }
   }
+  return '';
 }
 
 sub query_string {
