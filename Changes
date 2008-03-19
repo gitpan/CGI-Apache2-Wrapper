@@ -1,3 +1,7 @@
+0.215 March 18, 2008
+  - use 'exit 0' in Makefile.PL/Build.PL if mod_perl isn't installed,
+    to try to silence failed reports from cpantesters
+ 
 0.21 Apr 11, 2007
   - have header() return the defined ''.
 

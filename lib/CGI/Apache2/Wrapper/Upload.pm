@@ -1,7 +1,7 @@
 package CGI::Apache2::Wrapper::Upload;
 use Apache2::Request;
 push our @ISA, qw/APR::Request::Param/;
-our $VERSION = '0.21';
+our $VERSION = '0.215';
 {
   no strict 'refs';
   for (qw/type size tempname filename/) {

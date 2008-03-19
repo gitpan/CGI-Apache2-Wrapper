@@ -5,7 +5,7 @@ use File::Basename;
 use APR::Const -compile => qw(URI_UNP_OMITSITEPART
 			      URI_UNP_OMITPATHINFO
 			      URI_UNP_OMITQUERY);
-our $VERSION = '0.21';
+our $VERSION = '0.215';
 our $MOD_PERL;
 
 sub new {

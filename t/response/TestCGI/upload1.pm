@@ -39,14 +39,7 @@ sub handler {
 
     $r->content_type('text/plain');
     my $size = -s $temp_file;
-    my $response = <<"END";
-name: filename
-ref: $ref
-type: $type
-size: $size
-filename: $basename
-md5: $cs
-END
+    my $response = qq{name=filename;ref=$ref;type=$type;size=$size;filename=$basename;md5=$cs};
     $r->print($response);
     unlink $temp_file if -f $temp_file;
     return Apache2::Const::OK;

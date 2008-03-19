@@ -36,6 +36,8 @@ A ppm package for Win32 users of ActivePerl 8xx can be installed
 by adding http://theoryx5.uwinnipeg.ca/ppms/ to your list
 of repositories and then issuing the command
    C:\> ppm install CGI-Apache2-Wrapper
+The corresponding repository for ActivePerl 10xx is
+http://cpan.uwinnipeg.ca/PPMPackages/10xx/.
 
 This software is copyright 2007 by Randy Kobes
 <r.kobes@uwinnipeg.ca>. Use and

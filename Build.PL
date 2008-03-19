@@ -8,7 +8,10 @@ my %prereq = (
 	      'Apache2::RequestRec' => 0,
              );
 eval {require Apache::TestMB; };
-die qq{Apache::TestMB is required for testing} if $@;
+if ($@) {
+  warn qq{Please install ModPerl::MM first};
+  exit 0;
+}
 
 my $build = Apache::TestMB->new(
   module_name => 'CGI::Apache2::Wrapper',

@@ -56,13 +56,7 @@ foreach my $file( map {File::Spec->catfile($cwd, 't', $_)} @names) {
 
     my $result = UPLOAD_BODY("$location?has_md5=$has_md5",
                                filename => $file);
-    my @v = split /\n/, $result;
-    my %h;
-    foreach (@v) {
-        my ($k, $v) = $_ =~ /^(\w+):\s*(.*)/;
-        next unless (defined $k and defined $v);
-        $h{$k} = $v;
-    }
+    my %h = map {$_;} split /[=&;]/, $result, -1;
     ok t_cmp($h{name}, "filename", "test for name");
     ok t_cmp($h{ref}, "GLOB", "test for ref");
     ok t_cmp($h{type}, $types{$basename}, "test for type");

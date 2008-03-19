@@ -27,7 +27,10 @@ if ($eu_version > 6.11) {
 }
 
 eval {require ModPerl::MM; };
-die qq{Please install ModPerl::MM first} if $@;
+if ($@) {
+  warn qq{Please install ModPerl::MM first};
+  exit 0;
+}
 
 require Apache::TestMM;
 import Apache::TestMM qw(test clean);
